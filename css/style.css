@@ -1,0 +1,58 @@
+/*
+COLORS:
+
+Light green: #7ed56f
+Medium green: #55c57a
+Dark green: #28b485
+
+*/
+
+* {    /** Universal selector *: select each and every element on the page, and then apply these declarations here from body  */
+  margin: 0;
+  padding: 0;  
+  box-sizing: border-box;
+}    /** we add on each elemnt 0 margin and padding and allows us to start without any m and p which browsers add by default. */
+
+body {
+    font-family: "Lato", sens-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.7;          /** That means it's 1.7 times bigger than the predefined line height. */
+    color: #777;
+    padding: 30px;
+}
+
+.header {
+    height: 95vh;             /** The height of this element should be 95% of the viewport height. */
+    background-image: linear-gradient(
+        to right bottom,
+        rgba(35, 182, 6, 0.8),
+        rgba(128, 196, 228, 0.671)), 
+    url('../img/hero.jpg');
+    background-size: cover;                   /** Cover means whenever the width of viewport/ element, it'll always try to fit the element inside of the box.  */  
+    background-position: top;
+
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
