@@ -4,26 +4,25 @@ COLORS:
 Light green: #7ed56f
 Medium green: #55c57a
 Dark green: #28b485
-
 */
 
-* {    /** Universal selector *: select each and every element on the page, and then apply these declarations here from body  */
+* {                                         /* Universal selector *: select each and every element on the page, and then apply these declarations here from body  */
   margin: 0;
   padding: 0;  
   box-sizing: border-box;
-}    /** We add on each elemnt 0 margin and padding and allows us to start without any m and p which browsers add by default. */
+}                                           /* We add on each elemnt 0 margin and padding and allows us to start without any m and p which browsers add by default. */
 
 body {
     font-family: "Lato", sens-serif;
     font-weight: 400;
     font-size: 16px;
-    line-height: 1.7;          /** That means it's 1.7 times bigger than the predefined line height. */
+    line-height: 1.7;                        /* That means it's 1.7 times bigger than the predefined line height. */
     color: #777;
     padding: 30px;
 }
 
 .header {
-    height: 95vh;             /** The height of this element should be 95% of the viewport height. */
+    height: 95vh;                            /* The height of this element should be 95% of the viewport height. */
     background-image: linear-gradient(
         to right bottom,
         rgba(35, 182, 6, 0.8),
@@ -56,6 +55,7 @@ body {
 .heading-primary {
     color: #fff;
     text-transform: uppercase;
+    backface-visibility: hidden;        /* fix for shaking animations */
 }
 
 .heading-primary-main {
@@ -63,6 +63,17 @@ body {
     font-size: 60px;
     font-weight: 400;
     letter-spacing: 35px;
+
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+
+    /* 
+    animation-delay: 3s;                 - w8ing 3 seconds before animation will start.
+    animation-iteration-count: 3;        - Tha animation will happen three times.
+    animation-timing-function: ease-in;  - Animation will start slower and then accelerate overtime.
+    animation-timing-function: cubic-bezier(0.1, ....);  - Allows us to write custom timing function.
+    */
 }
 
 .heading-primary-sub {
@@ -70,6 +81,39 @@ body {
     font-size: 20px;
     font-weight: 700;
     letter-spacing: 17.4px;
+    animation: moveInRight 1s ease-out;
+}
+
+@keyframes moveInLeft {
+    0% {                                  /* We start with 0% which is bofre the animation actually starts. */
+        opacity: 0;
+        transform: translateX(-100px);    /* trannslateX(-100px) cus we want to start from to left to right & we want to be more on the left in the beginning. */
+    }
+
+    80% {                                 /* We wanted someting to happen when animation is on 80% finished */
+        transform: translateX(10px);
+    }
+
+    100% {                                /* The finish is at 100%, which is when animation finishes. */
+        opacity: 1;
+        transform: translate(0);          /* translate(0) cus we want look exactly the same as before animation start. */
+    }
+}
+
+@keyframes moveInRight {
+    0% {                     
+        opacity: 0;
+        transform: translateX(100px);   
+    }
+
+    80% {                    
+        transform: translateX(-10px);
+    }
+
+    100% {                
+        opacity: 1;
+        transform: translate(0);         
+    }
 }
 
 
