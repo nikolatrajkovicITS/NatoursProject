@@ -118,14 +118,27 @@ body {
     }
 }
 
+@keyframes moveInBottom {
+    0% {                     
+        opacity: 0;
+        transform: translateY(30px);   
+    }
+
+    100% {                
+        opacity: 1;
+        transform: translate(0);         
+    }
+}
+
 .btn:link,
 .btn:visited {
     text-transform: uppercase;
     text-decoration: none;
     padding: 15px 40px;
     display: inline-block;
-    border-radius: 100px;
-    transition: all .2s;           /* All the property are enabled to be animated. */
+    border-radius: 100px; 
+    transition: all .2s;                        /* All the property are enabled to be animated. */
+    position: relative;
 }
 
 .btn:hover {
@@ -143,6 +156,32 @@ body {
     color: #777;
 }
 
+.btn::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;                                /* z-index define the postion of the elements if they are on tog of another, this is -1  -so definitly behind the button. */
+    transition: all .4s;
+}
+
+.btn-white::after {
+    background-color: #fff;
+}
+
+.btn:hover::after {                             /* this is after effect only when button is on hover, we want to element to grow and to fade out. */
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+}
+
+.btn-animated {
+    animation: moveInBottom .5s ease-out .75;
+    animation-fill-mode: backwards;             /* That will automatically apply the styles up to zero prercent before the animation starts */
+}
 
 
 
