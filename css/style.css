@@ -6,19 +6,27 @@ Medium green: #55c57a
 Dark green: #28b485
 */
 
-* {                                         /* Universal selector *: select each and every element on the page, and then apply these declarations here from body  */
+*,
+*::after,
+*::before {                                         /* Universal selector *: select each and every element on the page, and then apply these declarations here from body  */
   margin: 0;
   padding: 0;  
-  box-sizing: border-box;
+  box-sizing: inherit;
 }                                           /* We add on each elemnt 0 margin and padding and allows us to start without any m and p which browsers add by default. */
+
+html {
+    font-size: 62.5%;
+}
 
 body {
     font-family: "Lato", sens-serif;
     font-weight: 400;
-    font-size: 16px;
+    /* font-size: 16px; */
     line-height: 1.7;                        /* That means it's 1.7 times bigger than the predefined line height. */
     color: #777;
-    padding: 30px;
+    padding: 3rem;
+
+    box-sizing: border-box;
 }
 
 .header {
@@ -35,17 +43,17 @@ body {
     clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
 }
 
-.logo-box {
+.header__logo-box {
     position: absolute;
-    top: 40px;
-    left: 40px;
+    top: 4rem;
+    left: 4rem;
 }
 
-.logo {
-    height: 35px;
+.header__logo {
+    height: 3.5rem;
 }
 
-.text-box {
+.header__text-box {
     position: absolute;
     top: 40%;
     left: 50%;                         /* 50% to the left of the perent element to the left side */
@@ -57,14 +65,14 @@ body {
     color: #fff;
     text-transform: uppercase;
     backface-visibility: hidden;        /* fix for shaking animations */
-    margin-bottom: 60px;
+    margin-bottom: 6rem;
 }
 
-.heading-primary-main {
+.heading-primary--main {
     display: block;
-    font-size: 60px;
+    font-size: 6rem;
     font-weight: 400;
-    letter-spacing: 35px;
+    letter-spacing: 3.5rem;
 
     animation-name: moveInLeft;
     animation-duration: 1s;
@@ -78,22 +86,22 @@ body {
     */
 }
 
-.heading-primary-sub {
+.heading-primary--sub {
     display: block;
-    font-size: 20px;
+    font-size: 2rem;
     font-weight: 700;
-    letter-spacing: 17.4px;
+    letter-spacing: 1.75rem;
     animation: moveInRight 1s ease-out;
 }
 
 @keyframes moveInLeft {
     0% {                                  /* We start with 0% which is bofre the animation actually starts. */
         opacity: 0;
-        transform: translateX(-100px);    /* trannslateX(-100px) cus we want to start from to left to right & we want to be more on the left in the beginning. */
+        transform: translateX(-10rem);    /* trannslateX(-100px) cus we want to start from to left to right & we want to be more on the left in the beginning. */
     }
 
     80% {                                 /* We wanted someting to happen when animation is on 80% finished */
-        transform: translateX(10px);
+        transform: translateX(1rem);
     }
 
     100% {                                /* The finish is at 100%, which is when animation finishes. */
@@ -105,11 +113,11 @@ body {
 @keyframes moveInRight {
     0% {                     
         opacity: 0;
-        transform: translateX(100px);   
+        transform: translateX(10rem);   
     }
 
     80% {                    
-        transform: translateX(-10px);
+        transform: translateX(-1rem);
     }
 
     100% {                
@@ -121,7 +129,7 @@ body {
 @keyframes moveInBottom {
     0% {                     
         opacity: 0;
-        transform: translateY(30px);   
+        transform: translateY(3rem);   
     }
 
     100% {                
@@ -134,24 +142,25 @@ body {
 .btn:visited {
     text-transform: uppercase;
     text-decoration: none;
-    padding: 15px 40px;
+    padding: 1.5rem 4rem;
     display: inline-block;
-    border-radius: 100px; 
+    border-radius: 10rem; 
     transition: all .2s;                        /* All the property are enabled to be animated. */
     position: relative;
+    font-size: 1.6rem;
 }
 
 .btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0,0,0,.2);
+    transform: translateY(-.3rem);
+    box-shadow: 0 1rem 2rem rgba(0,0,0,.2);
 }
 
 .btn:active {
     transform: translateY(-1px);
-    box-shadow: 0 5px 10px rgba(0,0,0,.2);
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.2);
 }
 
-.btn-white {
+.btn--white {
     background-color: #fff;
     color: #777;
 }
@@ -161,7 +170,7 @@ body {
     display: inline-block;
     height: 100%;
     width: 100%;
-    border-radius: 100px;
+    border-radius: 10rem;
     position: absolute;
     top: 0;
     left: 0;
@@ -169,7 +178,7 @@ body {
     transition: all .4s;
 }
 
-.btn-white::after {
+.btn--white::after {
     background-color: #fff;
 }
 
@@ -178,7 +187,7 @@ body {
     opacity: 0;
 }
 
-.btn-animated {
+.btn--animated {
     animation: moveInBottom .5s ease-out .75;
     animation-fill-mode: backwards;             /* That will automatically apply the styles up to zero prercent before the animation starts */
 }
