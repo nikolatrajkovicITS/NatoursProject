@@ -1,0 +1,43 @@
+@keyframes moveInLeft {
+    0% {                                  /* We start with 0% which is bofre the animation actually starts. */
+        opacity: 0;
+        transform: translateX(-10rem);    /* trannslateX(-100px) cus we want to start from to left to right & we want to be more on the left in the beginning. */
+    }
+
+    80% {                                 /* We wanted someting to happen when animation is on 80% finished */
+        transform: translateX(1rem);
+    }
+
+    100% {                                /* The finish is at 100%, which is when animation finishes. */
+        opacity: 1;
+        transform: translate(0);          /* translate(0) cus we want look exactly the same as before animation start. */
+    }
+}
+
+@keyframes moveInRight {
+    0% {                     
+        opacity: 0;
+        transform: translateX(10rem);   
+    }
+
+    80% {                    
+        transform: translateX(-1rem);
+    }
+
+    100% {                
+        opacity: 1;
+        transform: translate(0);         
+    }
+}
+
+@keyframes moveInBottom {
+    0% {                     
+        opacity: 0;
+        transform: translateY(3rem);   
+    }
+
+    100% {                
+        opacity: 1;
+        transform: translate(0);         
+    }
+}
