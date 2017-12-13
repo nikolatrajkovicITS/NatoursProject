@@ -1,6 +1,5 @@
 .row {
     max-width: $grid-width;           // devide this 1140px number by 10, cus 10px is 1rem, and we want to use rem here.
-    background-color: #eee;
     margin: 0 auto;                   // to center block elements inside of another block element.  Bot and top 0 and left and right auto.
 
     &:not(:last-child) {              // we select everything except last child
@@ -10,7 +9,6 @@
     @include clearfix;
 
     [class^="col-"] {
-        background-color: orangered;
         float: left;
 
         &:not(:last-child) {

@@ -1,88 +1,3 @@
-/*
-COLORS:
-
-Light green: #7ed56f
-Medium green: #55c57a
-Dark green: #28b485
-*/
-*,
-*::after,
-*::before {
-  /* Universal selector *: select each and every element on the page, and then apply these declarations here from body  */
-  margin: 0;
-  padding: 0;
-  box-sizing: inherit; }
-
-/* We add on each element 0 margin and padding and allows us to start without any m and p which browsers add by default. */
-html {
-  font-size: 62.5%; }
-
-body {
-  font-family: "Lato", sens-serif;
-  font-weight: 400;
-  /* font-size: 16px; */
-  line-height: 1.7;
-  /* That means it's 1.7 times bigger than the predefined line height. */
-  color: #777;
-  padding: 3rem;
-  box-sizing: border-box; }
-
-.header {
-  height: 95vh;
-  /* The height of this element should be 95% of the viewport height. */
-  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.671)), url("../img/hero.jpg");
-  background-size: cover;
-  /* Cover means whenever the width of viewport/element, it's always try to fit the element inside of the box.  */
-  background-position: top;
-  position: relative;
-  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); }
-
-.header__logo-box {
-  position: absolute;
-  top: 4rem;
-  left: 4rem; }
-
-.header__logo {
-  height: 3.5rem; }
-
-.header__text-box {
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  /* 50% to the left of the perent element to the left side */
-  transform: translate(-50%, -50%);
-  /* This is in relation to the element itself */
-  text-align: center; }
-
-.heading-primary {
-  color: #fff;
-  text-transform: uppercase;
-  backface-visibility: hidden;
-  /* fix for shaking animations */
-  margin-bottom: 6rem; }
-
-.heading-primary--main {
-  display: block;
-  font-size: 6rem;
-  font-weight: 400;
-  letter-spacing: 3.5rem;
-  animation-name: moveInLeft;
-  animation-duration: 1s;
-  animation-timing-function: ease-out;
-  /* 
-    animation-delay: 3s;                 - w8ing 3 seconds before animation will start.
-    animation-iteration-count: 3;        - Tha animation will happen three times.
-    animation-timing-function: ease-in;  - Animation will start slower and then accelerate overtime.
-    animation-timing-function: cubic-bezier(0.1, ....);  - Allows us to write custom timing function.
-    */ }
-
-.heading-primary--sub {
-  display: block;
-  font-size: 2rem;
-  font-weight: 700;
-  letter-spacing: 1.75rem;
-  animation: moveInRight 1s ease-out; }
-
 @keyframes moveInLeft {
   0% {
     /* We start with 0% which is bofre the animation actually starts. */
@@ -116,8 +31,78 @@ body {
     opacity: 1;
     transform: translate(0); } }
 
-.btn:link,
-.btn:visited {
+*,
+*::after,
+*::before {
+  /* Universal selector *: select each and every element on the page, and then apply these declarations here from body  */
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+/* We add on each element 0 margin and padding and allows us to start without any m and p which browsers add by default. */
+html {
+  font-size: 62.5%; }
+
+body {
+  box-sizing: border-box; }
+
+body {
+  font-family: "Lato", sens-serif;
+  font-weight: 400;
+  /* font-size: 16px; */
+  line-height: 1.7;
+  /* That means it's 1.7 times bigger than the predefined line height. */
+  color: #777;
+  padding: 3rem; }
+
+.heading-primary {
+  color: #fff;
+  text-transform: uppercase;
+  backface-visibility: hidden;
+  /* fix for shaking animations */
+  margin-bottom: 6rem; }
+  .heading-primary--main {
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+    /* 
+        animation-delay: 3s;                 - w8ing 3 seconds before animation will start.
+        animation-iteration-count: 3;        - Tha animation will happen three times.
+        animation-timing-function: ease-in;  - Animation will start slower and then accelerate overtime.
+        animation-timing-function: cubic-bezier(0.1, ....);  - Allows us to write custom timing function.
+        */ }
+  .heading-primary--sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.75rem;
+    animation: moveInRight 1s ease-out; }
+
+.header-secondary {
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  display: inline-block;
+  background-image: linear-gradient(to right, #7ed56f, #28b485);
+  -webkit-background-clip: text;
+  color: transparent;
+  letter-spacing: .2rem;
+  transition: all .2s; }
+  .header-secondary:hover {
+    transform: skewY(2deg) skewX(15deg) scale(1.1);
+    text-shadow: 0.5rem 1rem 2rem rgba(0, 0, 0, 0.2); }
+
+.u-center-text {
+  text-align: center; }
+
+.u-margin-bottom-8 {
+  margin-bottom: 8rem; }
+
+.btn:link, .btn:visited {
   text-transform: uppercase;
   text-decoration: none;
   padding: 1.5rem 4rem;
@@ -131,6 +116,10 @@ body {
 .btn:hover {
   transform: translateY(-0.3rem);
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); }
+  .btn:hover::after {
+    /* this is after effect only when button is on hover, we want to element to grow and to fade out. */
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0; }
 
 .btn:active {
   transform: translateY(-1px);
@@ -139,6 +128,8 @@ body {
 .btn--white {
   background-color: #fff;
   color: #777; }
+  .btn--white::after {
+    background-color: #fff; }
 
 .btn::after {
   content: "";
@@ -153,15 +144,62 @@ body {
   /* z-index define the postion of the elements if they are on tog of another, this is -1  -so definitly behind the button. */
   transition: all .4s; }
 
-.btn--white::after {
-  background-color: #fff; }
-
-.btn:hover::after {
-  /* this is after effect only when button is on hover, we want to element to grow and to fade out. */
-  transform: scaleX(1.4) scaleY(1.6);
-  opacity: 0; }
-
 .btn--animated {
   animation: moveInBottom .5s ease-out .75;
   animation-fill-mode: backwards;
   /* That will automatically apply the styles up to zero prercent before the animation starts */ }
+
+.row {
+  max-width: 114rem;
+  margin: 0 auto; }
+  .row:not(:last-child) {
+    margin-bottom: 8rem; }
+  .row::after {
+    content: "";
+    display: table;
+    clear: both; }
+  .row [class^="col-"] {
+    float: left; }
+    .row [class^="col-"]:not(:last-child) {
+      margin-right: 6rem; }
+  .row .col-1-of-2 {
+    width: calc((100% - 6rem) / 2); }
+  .row .col-1-of-3 {
+    width: calc(((100% - 2 * 6rem) / 3)); }
+  .row .col-2-of-3 {
+    width: calc(2 * ((100% - 2 * 6rem) / 3) + gutter-horizontal); }
+  .row .col-1-of-4 {
+    width: calc(((100% - 3 * 6rem) / 4)); }
+  .row .col-2-of-4 {
+    width: calc(2 * ((100% - 3 * 6rem) / 4) + gutter-horizontal); }
+  .row .col-3-of-4 {
+    width: calc(3 * ((100% - 3 * 6rem) / 4) + 2 * gutter-horizontal); }
+
+.header {
+  height: 95vh;
+  /* The height of this element should be 95% of the viewport height. */
+  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.671)), url("../img/hero.jpg");
+  background-size: cover;
+  /* Cover means whenever the width of viewport/element, it's always try to fit the element inside of the box.  */
+  background-position: top;
+  position: relative;
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); }
+  .header__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem; }
+  .header__logo {
+    height: 3.5rem; }
+  .header__text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    /* 50% to the left of the perent element to the left side */
+    transform: translate(-50%, -50%);
+    /* This is in relation to the element itself */
+    text-align: center; }
+
+.section-about {
+  background-color: #f7f7f7;
+  padding: 25rem 0;
+  margin-top: -20vh; }
