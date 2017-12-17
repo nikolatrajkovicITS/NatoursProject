@@ -2,6 +2,7 @@
     background-color: $color-grey-light-1;
     padding: 25rem 0;
     margin-top: -20vh;
+    margin-bottom: -10rem;
 }
 
 .section-features {
@@ -12,4 +13,9 @@
         rgba($color-primary-dark, 0.671)), 
     url('../img/nat-4.jpg');
     background-size: cover;               // to cover entire section
-}
+    transform: skewY(-7deg);
+    
+    & > * {                           // "Direct child selector" using universal selector select only everything that is a direct child of the section featrues 
+        transform: skewY(7deg);
+    }
+ }
