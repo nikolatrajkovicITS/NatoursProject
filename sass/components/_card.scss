@@ -1,0 +1,43 @@
+.card {
+    perspective: 150rem;
+    -moz-perspective: 150rem;           // this can work in mozzila now
+    position: relative;
+    height: 50rem;
+
+    &__side {
+        background-color: red;
+        color: #fff;
+        font-size: 2rem;
+
+        height: 50rem;
+        transition: all .8s ease;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        backface-visibility: hidden;        // If we set it to hidden, it basiclly hides the back part of an element.
+        border-radius: 3px;
+        box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
+
+        &--front {
+            background-color: $color-white;
+        }
+
+        &--back {    
+            transform: rotateY(180deg);      // back side is now alredey roteted 180deg, and this side is in start behind.       
+        
+            &-1 {
+                background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark);
+            }
+        }
+    }
+
+    // We hover the card, and when the card is hovered, then the card front-side will be transformed.
+    &:hover &__side--front {        
+        transform: rotateY(180deg);
+    }
+
+    &:hover &__side--back {        
+        transform: rotateY(0);
+    }
+}
