@@ -8,7 +8,7 @@
     background-size: cover;                   /* Cover means whenever the width of viewport/element, it's always try to fit the element inside of the box.  */  
     background-position: top;
     position: relative;
-
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
     clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
 
     &__logo-box {
