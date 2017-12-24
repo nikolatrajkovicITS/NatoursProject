@@ -441,6 +441,10 @@ body {
     width: 15rem;
     height: 15rem;
     float: left;
+    transform: translateX(-3rem) skewX(12deg);
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
     -webkit-shape-outside: circle(50% at 50% 50%);
     shape-outside: circle(50% at 50% 50%);
     -webkit-clip-path: circle(50% at 50% 50%);
@@ -449,10 +453,9 @@ body {
     position: relative; }
   .story__img {
     height: 100%;
-    transform: skewX(12deg) scale(1.4rem);
+    transform: translateX(-4rem) scale(1.4);
     backface-visibility: hidden;
-    transition: all .5s;
-    filter: blur(3px) brightness(80%); }
+    transition: all .5s; }
   .story__text {
     transform: skewX(12deg); }
   .story__caption {
@@ -574,7 +577,9 @@ body {
   right: 6rem;
   border-radius: 50%;
   z-index: 2000;
-  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.1); }
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.1);
+  text-align: center;
+  cursor: pointer; }
 
 .navigation__background {
   height: 6rem;
@@ -635,6 +640,41 @@ body {
 .navigation__checkbox:checked ~ .navigation__nav {
   opacity: 1;
   width: 100%; }
+
+.navigation__icon {
+  position: relative;
+  margin-top: 3.5rem; }
+  .navigation__icon, .navigation__icon::before, .navigation__icon::after {
+    width: 3rem;
+    height: 2px;
+    background-color: #333;
+    display: inline-block; }
+  .navigation__icon::before, .navigation__icon::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    transition: all .2s; }
+  .navigation__icon::before {
+    top: -.8rem; }
+  .navigation__icon::after {
+    top: .8rem; }
+
+.navigation__button:hover .navigation__icon::before {
+  top: -1rem; }
+
+.navigation__button:hover .navigation__icon::after {
+  top: 1rem; }
+
+.navigation__checkbox:checked + .navigation__button .navigation__icon {
+  background-color: transparent; }
+
+.navigation__checkbox:checked + .navigation__button .navigation__icon::before {
+  top: 0;
+  transform: rotate(135deg); }
+
+.navigation__checkbox:checked + .navigation__button .navigation__icon::after {
+  top: 0;
+  transform: rotate(-135deg); }
 
 .section-about {
   background-color: #f7f7f7;
